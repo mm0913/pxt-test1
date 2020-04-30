@@ -1,6 +1,6 @@
 //% weight=10 icon="\uf085" color=#FFA400 block="m-robo"
 namespace robo_test {
-    let a;
+    let a=0;
 
     //% blockId=plus block="plus %v"
     export function plus(){
@@ -9,6 +9,6 @@ namespace robo_test {
     
     //% blockId=answer block="answer %v"
     export function answer(){
-        return(123);
+        return(a);
     }
 }
