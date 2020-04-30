@@ -11,4 +11,9 @@ namespace robo_test {
     export function answer(){
         return(a);
     }
+
+    //% blockId=double block="2倍 %v"
+    export function double(b: number) {
+        return(b*2);
+    }
 }
