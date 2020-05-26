@@ -12,9 +12,18 @@ namespace robo_test {
     Saturation = [0, 0, 0];
     Value = [0, 0, 0];
 
-    //% blockId=plus block="plus %v"
-    export function plus() {
-        a = 1 + 1;
+    export enum StdMotions {
+        //% block="Walk Forward"
+        WalkForward = 0x46,
+        //% block="Walk Left Turn"
+        WalkLTurn = 0x47,
+        //% block="Arm PataPata"
+        ArmPataPata = 0x29
+    }
+
+    //% blockId=unswer block="unswer %v"
+    export function unswer(select: StdMotions) {
+        return (select);
     }
 
     //% blockId=double block="2倍 %v"
