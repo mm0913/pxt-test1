@@ -104,7 +104,7 @@ namespace robo_test {
     }
 
 
-    //% blockId=COLOR block="COLOR %v"
+    //% blockId=Color block="COLOR %v"
     export function COLOR() {
         for (let index = 0; index <= 1; index++) {
             pins.i2cWriteNumber(64, 8 + index * 3, NumberFormat.UInt8BE, false);
