@@ -17,11 +17,6 @@ namespace robo_test {
         a = 1 + 1;
     }
 
-    //% blockId=answer block="answer %v"
-    export function answer() {
-        return (a);
-    }
-
     //% blockId=double block="2倍 %v"
     export function double(b: number) {
         return (b * 2);
