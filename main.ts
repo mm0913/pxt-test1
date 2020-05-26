@@ -1,16 +1,16 @@
 //% weight=10 icon="\uf085" color=#FFA400 block="m-robo"
 namespace robo_test {
     let a = 0;
-    let Value: number[] = []
-    let Saturation: number[] = []
-    let Hue: number[] = []
-    let Color = "NULL"
-    let Color_L = "NULL"
-    let Color_R = "NULL"
-    let border = 125
-    Hue = [0, 0, 0]
-    Saturation = [0, 0, 0]
-    Value = [0, 0, 0]
+    let Value: number[] = [];
+    let Saturation: number[] = [];
+    let Hue: number[] = [];
+    let Color = "NULL";
+    let Color_L = "NULL";
+    let Color_R = "NULL";
+    let border = 125;
+    Hue = [0, 0, 0];
+    Saturation = [0, 0, 0];
+    Value = [0, 0, 0];
 
     //% blockId=plus block="plus %v"
     export function plus() {
@@ -107,48 +107,48 @@ namespace robo_test {
     //% blockId=COLOR block="COLOR %v"
     export function COLOR() {
         for (let index = 0; index <= 1; index++) {
-            pins.i2cWriteNumber(64, 8 + index * 3, NumberFormat.UInt8BE, false)
-            Hue[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false)
-            pins.i2cWriteNumber(64, 9 + index * 3, NumberFormat.UInt8BE, false)
-            Saturation[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false)
-            pins.i2cWriteNumber(64, 10 + index * 3, NumberFormat.UInt8BE, false)
-            Value[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false)
+            pins.i2cWriteNumber(64, 8 + index * 3, NumberFormat.UInt8BE, false);
+            Hue[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false);
+            pins.i2cWriteNumber(64, 9 + index * 3, NumberFormat.UInt8BE, false);
+            Saturation[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false);
+            pins.i2cWriteNumber(64, 10 + index * 3, NumberFormat.UInt8BE, false);
+            Value[2] = pins.i2cReadNumber(64, NumberFormat.UInt8BE, false);
 
             if (Hue[2] != 255 && Saturation[2] != 255 && Value[2] != 255) {
-                Hue[index] = Hue[2] * 2
-                Saturation[index] = Saturation[2]
-                Value[index] = Value[2]
+                Hue[index] = Hue[2] * 2;
+                Saturation[index] = Saturation[2];
+                Value[index] = Value[2];
             }
 
             if (Value[index] < 32) {
-                Color = "Black"
+                Color = "Black";
             } else if (Saturation[index] < 48) {
                 if (Value[index] < border) {
-                    Color = "Black"
+                    Color = "Black";
                 } else {
-                    Color = "White"
+                    Color = "White";
                 }
             } else {
                 if (0 <= Hue[index] && Hue[index] < 30) {
-                    Color = "Red"
+                    Color = "Red";
                 } else if (30 <= Hue[index] && Hue[index] < 90) {
-                    Color = "Yellow"
+                    Color = "Yellow";
                 } else if (90 <= Hue[index] && Hue[index] < 165) {
-                    Color = "Green"
+                    Color = "Green";
                 } else if (165 <= Hue[index] && Hue[index] < 247.5) {
-                    Color = "Blue"
+                    Color = "Blue";
                 } else if (247.5 <= Hue[index] && Hue[index] < 322.5) {
-                    Color = "Purple"
+                    Color = "Purple";
                 } else if (322.5 <= Hue[index] && Hue[index] < 360) {
-                    Color = "Red"
+                    Color = "Red";
                 } else {
-                    Color = "ERROR"
+                    Color = "ERROR";
                 }
             }
             if (index == 0) {
-                Color_L = Color
+                Color_L = Color;
             } else {
-                Color_R = Color
+                Color_R = Color;
             }
         }
     }
