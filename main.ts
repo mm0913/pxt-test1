@@ -12,18 +12,24 @@ namespace robo_test {
     Saturation = [0, 0, 0];
     Value = [0, 0, 0];
 
-    export enum StdMotions {
-        //% block="Walk Forward"
-        WalkForward = 0x46,
-        //% block="Walk Left Turn"
-        WalkLTurn = 0x47,
-        //% block="Arm PataPata"
-        ArmPataPata = 0x29
+    export enum TxtSelectSenser {
+        //% block="Senser1"
+        txt1 = 1,
+        //% block="Senser2"
+        txt2 = 2
+    }
+    export enum TxtSelectData {
+        //% block="Hue"
+        txt1 = 1,
+        //% block="Saturation"
+        txt2 = 2,
+        //% block="Value"
+        txt3 = 3
     }
 
     //% blockId=unswer block="unswer %v"
-    export function unswer(select: StdMotions) {
-        return (select);
+    export function unswer(senser: TxtSelectSenser, data: TxtSelectData) {
+        return (senser + data);
     }
 
     //% blockId=double block="2倍 %v"
